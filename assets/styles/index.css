@@ -81,8 +81,8 @@ a{
 .account__score{
   color: black;
   font-size: var(--main-font-size);
-  margin: 40px 52px 0px 40px;
-
+  margin: 40px 35px 0px 40px;
+  
 }
 .account-score-inner{
   display: flex;
