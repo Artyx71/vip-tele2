@@ -61,7 +61,10 @@
     border-bottom: 1px solid grey;
     width: 100%;
   }
-  
+  .image-block img{
+    width: 100%;
+    max-width: 190px;
+  }
   .sidebar__list{
     display: flex;
     flex-direction: column;
@@ -86,7 +89,8 @@
   .rates__inner{
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
+    gap: 50px;
   }
 
 
@@ -94,10 +98,48 @@
     width: 100%;
     max-width: 285px;
     background-color: black;
-    padding: 20px;
+    border-radius: 5px 5px 0px 0px;
+    border-color: black;
   }
 
+  .card-text{
+    padding: 20px 20px 0px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .card-text p{
+    margin-bottom: 25px;
+  }
 
   .rates__inner-card button{
     width: 100%;
+    padding: 15px 0px;
+    border: none;
+    background-color: var(--active-color);
+    border-radius: 0px 0px 5px 5px;
+    font-size: 22px;
+    color: var(--main-color);
+    cursor: pointer;
   }
+
+.rates__inner-card h3{
+    margin-bottom: 20px;
+}
+
+
+
+@media (max-width: 768px) {
+    .main__inner{
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .sidebar{
+      max-width: 100%;
+      height: 37vh;
+    }
+  }
+  
+  
