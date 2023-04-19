@@ -59,7 +59,12 @@ a{
   padding-bottom: 15px;
   padding-top: 15px;
   border-bottom: 1px solid grey;
+
+}
+
+.image-block img{
   width: 100%;
+  max-width: 150px;
 }
 
 .sidebar__list{
@@ -77,13 +82,14 @@ a{
   background-color: var(--active-bg);
   transition: .3s;
   border-radius: 5px;
-
 }
 
 .account__score{
   color: black;
   font-size: var(--main-font-size);
   margin: 40px 35px 0px 40px;
+  width: 100%;
+  max-width: 220px;
   
 }
 .account-score-inner{
@@ -152,6 +158,9 @@ color: black;
 
 }
 
+.news__card img{
+  width: 100%;
+}
 
 .news__card-text{
   padding: 15px 0px 0px 15px;
@@ -170,3 +179,17 @@ color: black;
 .news__card-text a:hover{
   opacity: .9;
 }
+
+
+@media (max-width: 768px) {
+  .main__inner{
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .sidebar{
+    max-width: 100%;
+    height: 37vh;
+  }
+}
+
