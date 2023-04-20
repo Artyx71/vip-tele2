@@ -14,10 +14,12 @@
   }
   body{
     color: var(--main-color);
-    font-family: 'Anuphan', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: var(--main-font-size);
   }
-  
+  ul {
+    padding:0px;
+}
   li{
     list-style-type: none;
   }

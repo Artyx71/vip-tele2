@@ -14,7 +14,7 @@
 }
 body{
   color: var(--main-color);
-  font-family: 'Anuphan', sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-size: var(--main-font-size);
 }
 
@@ -139,8 +139,8 @@ width: 100%;
 
 
 .news{
-  margin-top: 40px;
 
+  margin: 40px 25px;
 border-radius: 5px;
 color: black;
 }
