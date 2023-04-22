@@ -16,6 +16,7 @@
     color: var(--main-color);
     font-family: 'Roboto', sans-serif;
     font-size: var(--main-font-size);
+    line-height: normal;
   }
   
   li{
@@ -152,6 +153,9 @@
       align-items: center;
       gap: 0px;
     }
+    .image-block{
+      margin-bottom: 0px;
+  }
   
     .sidebar{
       max-width: 100%;
@@ -164,6 +168,6 @@
         max-width: 100%;
     }
     .sidebar__list {
-        gap: 10px;
+      gap: 5px;
   }
 }

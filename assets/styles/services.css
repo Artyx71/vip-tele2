@@ -16,7 +16,8 @@
     color: var(--main-color);
     font-family: 'Roboto', sans-serif;
     font-size: var(--main-font-size);
-  }
+    line-height: normal;
+}
 
   ul{
     padding-left: 0px;
@@ -45,7 +46,7 @@
   
   .container{
     width: 100%; 
-    max-width: 1600px;
+    
      padding-right: 0; 
      padding-left: 0; 
      margin-right: 0;
@@ -114,6 +115,9 @@
 @media (max-width: 768px) {
     body{
         font-size: 12px;
+    }
+    .image-block{
+        margin-bottom: 0px;
     }
     .main__inner{
       flex-direction: column;
