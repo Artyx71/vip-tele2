@@ -48,11 +48,11 @@ a{
 .sidebar{
   padding: 12px 20px;
   background-color: rgb(var(--bg-dark-rgb));
-  height: 100vh;
   width: 100%;
   max-width: 250px;
   display: flex;
   flex-direction: column;
+  align-self: normal;
 }
 
 .image-block{
