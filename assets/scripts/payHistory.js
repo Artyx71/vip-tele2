@@ -5,7 +5,7 @@ const payHistoryUrl = `45.84.68.38:8082/system_api/?format=json&context=web&mode
 console.log(123, payHistoryUrl);
 
 fetch("https://tele-com.vip/carbon/api.php?req=" + btoa(payHistoryUrl))
-  .then((response) => response.json())
+  .then((response) => console.log(response.json()))
   .then((payHistory) => {
     if (!payHistory.error) {
       console.log("payHistory", payHistory);
