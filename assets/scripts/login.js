@@ -42,12 +42,9 @@ loginForm.addEventListener("submit", (e) => {
             "clientInfo",
             JSON.stringify(clientInfoObject)
           );
-
-          localStorage.setItem("userInfo", clientInfoObject);
           window.location.assign("../../index.html");
         } else {
           console.error(clientInfo.error);
-          messages.innerHTML = `<div class="alert alert-danger" role="alert">${clientInfo.error}</div>`;
         }
       });
   }
