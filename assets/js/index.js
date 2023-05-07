@@ -1,0 +1,9 @@
+const sessionObject = JSON.parse(sessionStorage.clientInfo);
+const scorebalance = document.querySelector(".score-balance");
+const scoreId = document.querySelector(".score-id");
+const scoreName = document.querySelector(".account__score-naming");
+const scoreOwner = document.querySelector(".account__score-owner");
+scoreId.innerHTML = sessionObject.account;
+scorebalance.innerHTML = sessionObject.balance;
+scoreName.innerHTML = sessionObject.tariff;
+scoreOwner.innerHTML = sessionObject.name;
