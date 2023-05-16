@@ -1,4 +1,6 @@
 const sessionId = localStorage.sessionID;
+const regexCost = /\((.*?)\)/;
+const regexName = /^[^:]+/;
 console.log(sessionId);
 const servicesUrl = `http://45.84.68.38:8082/system_api/?format=json&context=web&model=users&method1=web_cabinet.get_usluga_list&arg1={"filter":"","get_user_uslugas_all":true,"get_user_uslugas":true,"get_setted":true,"suid":\"${sessionId}\"}`;
 
@@ -16,13 +18,17 @@ const tableBody = document.getElementById("services-table-body");
 
 const myChildData = fetchData
   .map((element) => {
+    const serviceName = element.__self;
+    const serviceNameResult = serviceName.match(regexName)[0];
+    const serviceCost = regexCost.exec(element.__self);
+    const serviceCostResult = serviceCost ? serviceCost[1] : null;
     return `
     <tr>
-    <th scope="row">${element.__self}</th>
+    <th scope="row">${serviceNameResult}</th>
      <td>
      ${new Date(element.create_date).toLocaleDateString("en-GB")}
     </td>
-      <td>2₽</td>
+      <td>${serviceCostResult}</td>
    </tr>
   `;
   })
