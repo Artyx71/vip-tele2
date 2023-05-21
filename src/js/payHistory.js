@@ -17,10 +17,10 @@ const myChildData = fetchData.items
   .map((element) => {
     return `
     <tr>
-     <th scope="row">${new Date(element.op_date).toLocaleDateString(
-       "en-GB"
-     )} </th>
-      <td>${element.op_summa} ₽</td>
+     <th class="text-center" scope="row">${new Date(
+       element.op_date
+     ).toLocaleDateString("ru-RU")} </th>
+      <td class="text-center">${element.op_summa} ₽</td>
    </tr>
   `;
   })

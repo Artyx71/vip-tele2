@@ -39,7 +39,7 @@ loginForm.addEventListener("submit", (e) => {
           console.log(clientInfo);
           localStorage.setItem("sessionID", sessionID);
           localStorage.setItem("clientInfo", JSON.stringify(clientInfoObject));
-          window.location.assign("payHistory.html");
+          window.location.assign("main.html");
         } else {
           console.error(clientInfo.error);
         }
