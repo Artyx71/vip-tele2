@@ -1,0 +1,7 @@
+.container-wrapper {
+  display: none;
+}
+
+.container-wrapper.active {
+  display: block;
+}

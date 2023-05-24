@@ -16,6 +16,7 @@
       rel="stylesheet"
       href="https://unpkg.com/@adminkit/core@latest/dist/css/app.css"
     />
+    <link rel="stylesheet" href="main.css" />
   </head>
   <body>
     <div class="wrapper">
@@ -29,26 +30,38 @@
             <li class="sidebar-item active">
               <a class="sidebar-link" href="main.html">
                 <i class="align-middle" data-feather="credit-card"></i>
-                <span class="align-middle">Пополнение Баланса</span>
+                <span class="align-middle">
+                  <button class="btn">Пополнение Баланса</button></span
+                >
               </a>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link" href="payHistory.html">
+              <div class="sidebar-link" href="payHistory.html">
                 <i class="align-middle" data-feather="monitor"></i>
-                <span class="align-middle">История Платежей</span>
-              </a>
+                <span class="align-middle">
+                  <button class="btn" id="payHistoryBtn">
+                    История Платежей
+                  </button></span
+                >
+              </div>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link" href="activeServices.html">
+              <div class="sidebar-link" href="activeServices.html">
                 <i class="align-middle" data-feather="sliders"></i>
-                <span class="align-middle">Активные Услуги</span>
-              </a>
+                <span class="align-middle"
+                  ><button class="btn" id="activeServicesBtn">
+                    История Платежей
+                  </button>
+                </span>
+              </div>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link" href="login.html">
+              <div class="sidebar-link">
                 <i class="align-middle" data-feather="log-out"></i>
-                <span class="align-middle">Выход</span>
-              </a>
+                <span class="align-middle">
+                  <button id="logoutBtn" class="btn">Выход</button>
+                </span>
+              </div>
             </li>
           </ul>
         </div>
@@ -59,24 +72,50 @@
             <i class="hamburger align-self-center"></i>
           </a>
         </nav>
-
         <main class="content">
-          <div class="container-fluid p-0">
-            <h1 class="h3 mb-3"><strong>Analytics</strong> Dashboard</h1>
+          <div class="container-wrapper active">
+            <div class="container-fluid p-0">
+              <h1 class="h3 mb-3"><strong>Analytics</strong> Dashboard</h1>
+            </div>
+          </div>
 
-            <div class="row"></div>
+          <div class="container-wrapper" id="payHistoryWrapper">
+            <div class="container-fluid p-0">
+              <div class="row">
+                <table class="table table-hover">
+                  <thead>
+                    <tr>
+                      <th class="text-center" scope="col">
+                        Дата последнего Платежа
+                      </th>
+                      <th class="text-center" scope="col">Сумма В рублях</th>
+                    </tr>
+                  </thead>
+                  <tbody id="payhistory-table-body"></tbody>
+                </table>
+              </div>
+            </div>
+          </div>
 
-            <div class="row"></div>
-
-            <div class="row">
-             
+          <div class="container-wrapper" id="activeServicesWrapper">
+            <div class="container-fluid p-0">
+              <div class="row">
+                <table class="table table-hover">
+                  <thead>
+                    <tr>
+                      <th scope="col">Подключенная Услуга</th>
+                      <th scope="col">Дата последнего Платежа</th>
+                      <th scope="col">Сумма В рублях</th>
+                    </tr>
+                  </thead>
+                  <tbody id="services-table-body"></tbody>
+                </table>
+              </div>
+            </div>
           </div>
         </main>
-
-        
       </div>
     </div>
-
     <script src="https://unpkg.com/@adminkit/core@latest/dist/js/app.js"></script>
     <script src="src/js/main.js"></script>
   </body>
