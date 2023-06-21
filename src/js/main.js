@@ -25,23 +25,30 @@ const servicesUrl = `http://45.84.68.38:8082/system_api/?format=json&context=web
 const regexCost = /\((.*?)руб/;
 const regexName = /^[^:]+/;
 const logoutBtn = document.getElementById("logoutBtn");
-console.log(sessionId);
+console.log(111, sessionObject);
 
 payBtn.addEventListener("click", async (e) => {
   e.preventDefault();
   const scoreInput = document.getElementById("score-input").value;
-  console.log(scoreInput);
   if (!scoreInput) {
     alert("Введите сумму платежа");
   } else {
     const payScoreUrl = `http://45.84.68.38:8082/system_api/?format=json&context=web&model=users&method1=web_cabinet.add_payment_operation&arg1={"suid":\"${sessionId}\","src_ip":"10.20.30.41", "contract_number": "${scoreId}", "summa_in": "${scoreInput}", "operator": "SBERBANK_ACQ"}`;
     console.log(payScoreUrl);
-    const fetchData = await fetch(
-      "https://tele-com.vip/carbon/api.php?req=" + btoa(payScoreUrl)
-    ).then((response) => console.log(response));
-    // .then((payScore) => {
-    //   return payScore;
-    // });
+
+    const params = new URLSearchParams({
+      userName: 'P1513074909-api',
+      password: 'VkP@35gE',
+      amount: scoreInput * 100,
+      orderNumber: Date.now(),
+      returnUrl: 'http://45.84.68.38/cabinet/paycheck/?paysystem=sbrf_acq&orderId=a8e38d00-6c0a-767e-8032-3c5c02480174&lang=ru',
+    })
+    await fetch(
+      `https://securepayments.sberbank.ru/payment/rest/register.do?` + params)
+      .then((response) => response.json())
+      .then((payInfo) => {
+        window.open(payInfo?.formUrl, '_blank');
+    })
   }
 });
 
