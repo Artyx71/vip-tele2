@@ -90,7 +90,7 @@ loginForm.addEventListener("submit", (e) => {
             });
 
             paymentWrapper.classList.add("active");
-            payHistoryBtn.classList.add("active");
+            paymentButton.classList.add("active");
           });
 
           payBtn.addEventListener("click", async (e) => {
