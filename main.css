@@ -6,6 +6,16 @@
   display: block;
 }
 
-.dn{
-    display: none !important;
+.dn {
+  display: none !important;
+}
+
+#payBtn:hover {
+  border: 1px solid #000;
+}
+
+#score-input {
+  border-radius: 3px;
+  border: 1px solid #000;
+  padding: 5px;
 }
