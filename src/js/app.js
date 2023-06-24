@@ -43,13 +43,14 @@ loginForm.addEventListener("submit", (e) => {
           console.log(document.querySelector(".login-page"));
           document.querySelector(".login-page").classList.add("dn");
           document.querySelector(".main-page").classList.remove("dn");
-
+          var payData = {};
           const sessionObject = JSON.parse(localStorage.clientInfo);
           const scorebalance = document.querySelector(".score-balance");
           const scoreId = document.querySelector(".score-id");
+
           const payBtn = document.getElementById("payBtn");
           // console.log(sessionObject);
-          // console.log(scoreId);
+          console.log(scoreId);
           // console.log(scorebalance);
           const scoreName = document.querySelector(".account__score-naming");
           const sessionId = localStorage.sessionID;
@@ -79,7 +80,7 @@ loginForm.addEventListener("submit", (e) => {
           scorebalance.innerHTML = sessionObject.balance;
           scoreName.innerHTML = sessionObject.tariff;
           scoreOwner.innerHTML = sessionObject.name;
-
+          console.log(scoreId.innerHTML);
           paymentButton.addEventListener("click", () => {
             allWrappers.forEach((element) => {
               element.classList.remove("active");
@@ -100,14 +101,23 @@ loginForm.addEventListener("submit", (e) => {
             if (!scoreInput) {
               alert("Введите сумму платежа");
             } else {
-              const payScoreUrl = `http://45.84.68.38:8082/system_api/?format=json&context=web&model=users&method1=web_cabinet.add_payment_operation&arg1={"suid":\"${sessionId}\","src_ip":"10.20.30.41", "contract_number": "${scoreId}", "summa_in": "${scoreInput}", "operator": "SBERBANK_ACQ"}`;
+              const payScoreUrl = `http://45.84.68.38:8082/system_api/?format=json&context=web&model=users&method1=web_cabinet.add_payment_operation&arg1={"suid":\"${sessionId}\","src_ip":"10.20.30.41", "contract_number": "${scoreId.innerHTML}", "summa_in": "${scoreInput}", "operator": "SBERBANK_ACQ"}`;
               console.log(payScoreUrl);
+              let payIdObject;
 
+              const res = await fetch(
+                `http://45.84.68.38:8082/system_api/?format=json&context=web&model=users&method1=web_cabinet.add_payment_operation&arg1={"suid":\"${sessionId}\","src_ip":"10.20.30.41", "contract_number": "${scoreId.innerHTML}", "summa_in": "${scoreInput}", "operator": "SBERBANK_ACQ"}`
+              );
+              payIdObject = await res.json();
+              console.log(payIdObject);
+              // fetch(payScoreUrl)
+              //   .then((response) => response.json())
+              //   .then((responseData) => console.log(responseData));
               const params = new URLSearchParams({
                 userName: "P1513074909-api",
                 password: "VkP@35gE",
                 amount: scoreInput * 100,
-                orderNumber: Date.now(),
+                orderNumber: payIdObject.operation_id_out,
                 returnUrl:
                   "http://45.84.68.38/cabinet/paycheck/?paysystem=sbrf_acq&orderId=a8e38d00-6c0a-767e-8032-3c5c02480174&lang=ru",
               });
