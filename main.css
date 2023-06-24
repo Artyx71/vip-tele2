@@ -23,3 +23,7 @@
 .sidebar-nav .btn {
   color: #fff;
 }
+
+.sidebar-nav .btn:hover {
+  opacity: 0.7;
+}
