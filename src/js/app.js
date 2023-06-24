@@ -205,7 +205,7 @@ loginForm.addEventListener("submit", (e) => {
             localStorage.clear();
           });
         } else {
-          console.error(clientInfo.error);
+          alert(clientInfo.error);
         }
       });
   }
