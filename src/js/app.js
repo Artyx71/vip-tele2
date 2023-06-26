@@ -135,6 +135,7 @@ loginForm.addEventListener("submit", (e) => {
             )
               .then((response) => response.json())
               .then((payHistory) => {
+                console.log(payHistory);
                 return payHistory;
               });
 
@@ -204,8 +205,19 @@ loginForm.addEventListener("submit", (e) => {
             location.href = "index.html";
             localStorage.clear();
           });
-        } else {
-          alert(clientInfo.error);
+        } else if (clientInfo.error === "Неправильный логин") {
+          const loginAlert = document.querySelector(".alert-loginHidden");
+          loginAlert.classList.remove("alert-loginHidden");
+          loginAlert.classList.add("alert-loginVisible");
+          loginAlert.innerHTML = "Неправильный логин";
+        } else if (clientInfo.error === "Неправильный пароль") {
+          const passwordAlert = document.querySelector(
+            ".alert-passwordHidden "
+          );
+          passwordAlert.classList.remove("alert-passwordHidden");
+          passwordAlert.classList.add("alert-passwordVisible");
+          passwordAlert.innerHTML = "Неправильный пароль";
+        } else if (localStorage.value !== 0) {
         }
       });
   }

@@ -10,7 +10,7 @@
     <meta name="description" content="" />
     <meta name="author" content="" />
 
-    <title>AdminKit</title>
+    <title>Личный Кабинет</title>
 
     <link
       rel="stylesheet"
@@ -44,7 +44,7 @@
                           aria-describedby="basic-addon1"
                         />
                       </div>
-
+                      <span class="alert-loginHidden"></span>
                       <div class="mb-3">
                         <label class="form-label">Пароль</label>
                         <input
@@ -55,6 +55,7 @@
                           placeholder="Пароль"
                         />
                       </div>
+                      <span class="alert-passwordHidden"></span>
 
                       <div class="text-center mt-3">
                         <button
@@ -147,15 +148,19 @@
                   type="text"
                   placeholder="Введите сумму платежа"
                 />
-                <button id="payBtn" class="btn">Пополнить Баланс</button>
+                <button id="payBtn" class="btn btn-primary">
+                  Пополнить Баланс
+                </button>
               </div>
             </div>
           </div>
 
           <div class="container-wrapper" id="payHistoryWrapper">
             <div class="container-fluid p-0">
+              <!-- <div id="loader-wrapper"><div id="loader"></div></div> -->
+
               <div class="row">
-                <table class="table table-hover">
+                <table id="load-table" class="table table-hover">
                   <thead>
                     <tr>
                       <th class="text-center" scope="col">
